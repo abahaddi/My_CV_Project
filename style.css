@@ -1,72 +1,264 @@
-body {
+:root {
+    --vivid-purple: #3E0097;
+    --slate-grey: #2E2E2E;
+    --light-grey: #666666;
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: white;
+    padding: 0;
 }
 
-h1, h2 {
-    text-align: center;
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f7f9fa;
+    color: var(--light-grey);
+    line-height: 1.5;
+    padding: 40px 20px;
 }
 
-h1 {
-    color: #38bdf8;
-}
-
-h2 {
-    color: #94a3b8;
-}
-
-.content {
-    margin-left: 140px;
+.cv-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
     padding: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 4px;
+    position: relative;
 }
 
-section {
-    background: #1e293b;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 120px;
-    height: 100%;
-    background: #111827;
+/* --- EN-TÊTE --- */
+header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    padding-top: 20px;
+    border-bottom: 3px solid var(--vivid-purple);
+    padding-bottom: 25px;
+    margin-bottom: 30px;
 }
 
-.profile {
-    width: 80px;
-    height: 80px;
+.header-text h1 {
+    color: var(--slate-grey);
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-text .tagline {
+    color: var(--vivid-purple);
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--vivid-purple);
+}
+
+/* --- DEUX COLONNES --- */
+.columns {
+    display: flex;
+    gap: 40px;
+}
+
+.left-column {
+    flex: 0 0 60%;
+}
+
+.right-column {
+    flex: 0 0 40%;
+}
+
+h2.cv-section {
+    color: var(--vivid-purple);
+    font-size: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--vivid-purple);
+    padding-bottom: 5px;
+    margin: 25px 0 15px 0;
+    letter-spacing: 0.5px;
+}
+
+.profile-text {
+    font-size: 14px;
+    text-align: justify;
+}
+
+.event {
     margin-bottom: 20px;
 }
 
-.icons img {
-    width: 30px;
-    margin: 12px 0;
-    cursor: pointer;
-    transition: 0.3s;
+.event-title {
+    color: var(--slate-grey);
+    font-weight: 700;
+    font-size: 16px;
 }
 
-.icons img:hover {
-    transform: scale(1.2);
+.event-meta {
+    color: var(--vivid-purple);
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 5px;
 }
 
-.popup {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #38bdf8;
-    color: black;
+ul {
+    list-style-type: none;
+    padding-left: 15px;
+}
+
+ul li {
+    position: relative;
+    font-size: 13.5px;
+    margin-bottom: 5px;
+}
+
+ul li::before {
+    content: "•";
+    color: var(--vivid-purple);
+    font-weight: bold;
+    position: absolute;
+    left: -15px;
+}
+
+.divider {
+    height: 1px;
+    background: #e0e0e0;
+    margin: 15px 0;
+}
+
+.bold-text {
+    color: var(--slate-grey);
+    font-weight: 700;
+}
+
+/* --- BARRE FLOTTANTE (FIXÉE À L'ÉCRAN - NE DISPARAÎT JAMAIS) --- */
+.floating-contact {
+    position: fixed;   /* Reste ancré par rapport à la fenêtre de l'écran */
+    top: 150px;         /* Position verticale stable */
+    right: 30px;        /* Position horizontale stable */
+    background: white;
     padding: 15px;
-    border-radius: 10px;
-    display: none;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+    border-left: 4px solid var(--vivid-purple);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--slate-grey);
+    font-size: 13px;
+    font-weight: 400;
+    transition: all 0.25s ease;
+    padding: 4px 0;
+}
+
+/* Effets fluides au survol (Hover) */
+.contact-item:hover {
+    transform: translateX(-5px);
+    color: var(--vivid-purple);
+}
+
+.contact-item:hover .icon-svg {
+    fill: var(--slate-grey);
+    transform: scale(1.1);
+}
+
+.icon-svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--vivid-purple);
+    transition: all 0.25s ease;
+}
+
+.contact-text {
+    white-space: nowrap;
+}
+
+/* --- POPUP BIENVENUE --- */
+.welcome-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(46, 46, 46, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 500px;
+    border-top: 8px solid var(--vivid-purple);
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.4s ease-out;
+}
+
+.popup-content h3 {
+    color: var(--slate-grey);
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.popup-content p {
+    color: var(--light-grey);
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.popup-btn {
+    background: var(--vivid-purple);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+
+.popup-btn:hover {
+    background: #2b006b;
+}
+
+/* --- RESPONSIVE ADAPTATIF POUR SMARTPHONE/TABLETTE --- */
+@media (max-width: 992px) {
+    .floating-contact {
+        position: static;
+        margin: 20px auto;
+        max-width: 1000px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        border-left: none;
+        border-top: 4px solid var(--vivid-purple);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+}
+
+@media (max-width: 768px) {
+    .columns { flex-direction: column; }
+    .left-column, .right-column { flex: 0 0 100%; }
+    header { flex-direction: column; text-align: center; gap: 20px; }
 }
