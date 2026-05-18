@@ -14,8 +14,8 @@ Le projet est hébergé et accessible en direct à l'adresse suivante :
 ## 🛠️ Technologies Utilisées
 
 *   **HTML5** : Structure sémantique du contenu.
-*   **CSS3** : Design moderne, mise en page double colonne adaptative (Flexbox) et variables de styles.
-*   **JavaScript (Vanilla JS)** : Logique d'interaction pour la fermeture dynamique de la popup d'accueil (sans dépendance externe).
+*   **CSS** : Design moderne, mise en page double colonne adaptative (Flexbox) et variables de styles.
+*   **JavaScript** : Logique d'interaction pour la fermeture dynamique de la popup d'accueil (sans dépendance externe).
 
 ---
 
@@ -25,5 +25,5 @@ Le projet est hébergé et accessible en direct à l'adresse suivante :
 ├── index.html          # Page principale du CV
 ├── style.css           # Définitions des styles et responsive design
 ├── index.js            # Logique JavaScript (gestion de la popup)
-└── images/
-    └── photocv.png     # Photo de profil (recadrage circulaire automatique)
+└── photocv.png         # Photo de profil (recadrage circulaire automatique)
+     
