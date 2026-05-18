@@ -28,7 +28,6 @@ body {
     position: relative;
 }
 
-/* --- EN-TÊTE --- */
 header {
     display: flex;
     justify-content: space-between;
@@ -54,14 +53,17 @@ header {
 }
 
 .profile-img {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center;
     border: 3px solid var(--vivid-purple);
+    margin-left: 30px;
+    margin-bottom: 10px;
+    flex-shrink: 0;
 }
 
-/* --- DEUX COLONNES --- */
 .columns {
     display: flex;
     gap: 40px;
@@ -137,11 +139,10 @@ ul li::before {
     font-weight: 700;
 }
 
-/* --- BARRE FLOTTANTE (FIXÉE À L'ÉCRAN - NE DISPARAÎT JAMAIS) --- */
 .floating-contact {
-    position: fixed;   /* Reste ancré par rapport à la fenêtre de l'écran */
-    top: 150px;         /* Position verticale stable */
-    right: 30px;        /* Position horizontale stable */
+    position: fixed;
+    top: 150px;
+    right: 30px;
     background: white;
     padding: 15px;
     border-radius: 8px;
@@ -165,7 +166,6 @@ ul li::before {
     padding: 4px 0;
 }
 
-/* Effets fluides au survol (Hover) */
 .contact-item:hover {
     transform: translateX(-5px);
     color: var(--vivid-purple);
@@ -187,7 +187,6 @@ ul li::before {
     white-space: nowrap;
 }
 
-/* --- POPUP BIENVENUE --- */
 .welcome-popup {
     position: fixed;
     top: 0;
@@ -242,7 +241,6 @@ ul li::before {
     background: #2b006b;
 }
 
-/* --- RESPONSIVE ADAPTATIF POUR SMARTPHONE/TABLETTE --- */
 @media (max-width: 992px) {
     .floating-contact {
         position: static;
